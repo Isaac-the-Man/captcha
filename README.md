@@ -9,6 +9,8 @@ Three models for solving this challenge:
 2. CRNN (Convolutional Recurrent Neural Network) + CTC Loss
 3. ViT (Vision Transformer) + CTC Loss
 
+A demo webapp build using built using `postgres`, `fastapi`, `React` and `Docker` is also available to test out the model. See section "Run Demo with Docker" for more details.
+
 ### Dependencies
 
 All code in this repo is tested on python 3.12 only.
@@ -55,3 +57,7 @@ python train_vit.py
 ### Evaluation
 
 See the `<model-name>_eval.ipynb` for more details.
+
+### Run Demo with Docker
+
+See `README.docker.md` for more details.

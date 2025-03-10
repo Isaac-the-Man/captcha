@@ -1,0 +1,44 @@
+services:
+  db:
+    image: stevenjust4edu/captcha/database
+    build:
+      context: .
+      dockerfile: db.dockerfile
+    container_name: captcha_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: captcha_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  backend:
+    image: stevenjust4edu/captcha/backend
+    build:
+      context: .
+      dockerfile: backend.dockerfile
+    container_name: captcha_backend
+    restart: always
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+    ports:
+      - 8090:8000
+    depends_on:
+      - db
+  app:
+    image: stevenjust4edu/captcha/app
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+      args:
+        BACKEND_URL: http://localhost:8090
+    container_name: captcha_app
+    restart: always
+    ports:
+      - "8000:3000"
+    depends_on:
+      - backend
+    
+volumes:
+  postgres_data:
