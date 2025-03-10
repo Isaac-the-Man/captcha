@@ -8,6 +8,8 @@ You'll need to install docker on your local desktop first.
 
 ## Model Weights
 
+> Note: This step is only required if you want to build the images locally. 
+
 You can download my model weights [here](https://drive.google.com/file/d/19E32XYX-TuEMgJQHBd3BQjauPuou7vIY/view?usp=drive_link).
 
 Unzip the downloaded weights at project root under `checkpoints`.
@@ -15,6 +17,8 @@ Unzip the downloaded weights at project root under `checkpoints`.
 Or use your own weights, rename your checkpoints as `checkpoint.pth` leave them in the corresponding folder (e.g. `checkpoints/train_vit/checkpoint.pth` for ViT's weight).
 
 ## Deploy Demo with Docker Compose (Recommended)
+
+Pull the images remotely and run with:
 
 ```
 docker compose up -d
