@@ -6,6 +6,14 @@ Deploy a local webapp to test out the models with Docker.
 
 You'll need to install docker on your local desktop first.
 
+## Model Weights
+
+You can download my model weights [here](https://drive.google.com/file/d/19E32XYX-TuEMgJQHBd3BQjauPuou7vIY/view?usp=drive_link).
+
+Unzip the downloaded weights at project root under `checkpoints`.
+
+Or use your own weights, rename your checkpoints as `checkpoint.pth` leave them in the corresponding folder (e.g. `checkpoints/train_vit/checkpoint.pth` for ViT's weight).
+
 ## Deploy Demo with Docker Compose (Recommended)
 
 ```
