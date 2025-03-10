@@ -1,6 +1,6 @@
 services:
   db:
-    image: stevenjust4edu/captcha/database
+    image: stevenjust4edu/captcha-database
     build:
       context: .
       dockerfile: db.dockerfile
@@ -13,7 +13,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
   backend:
-    image: stevenjust4edu/captcha/backend
+    image: stevenjust4edu/captcha-backend
     build:
       context: .
       dockerfile: backend.dockerfile
@@ -27,7 +27,7 @@ services:
     depends_on:
       - db
   app:
-    image: stevenjust4edu/captcha/app
+    image: stevenjust4edu/captcha-app
     build:
       context: ./web
       dockerfile: Dockerfile
