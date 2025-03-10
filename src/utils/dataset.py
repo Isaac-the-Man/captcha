@@ -25,7 +25,7 @@ class CaptchaDataset(Dataset):
             self.labelPathPair = [self.labelPathPair[i] for i in randIdxs]
         else:
             # test split, no labels
-            self.labelPathPair = [(None, f) for f in os.listdir(os.path.join(self.root, 'test'))]
+            self.labelPathPair = [(None, os.path.join(self.root, 'test', f)) for f in os.listdir(os.path.join(self.root, 'test'))]
 
     def loadMetaData(self):
         # load metadata
@@ -45,4 +45,7 @@ class CaptchaDataset(Dataset):
         img = read_image(path)
         if self.transform:
             img = self.transform(img)
-        return img, label
+        if self.split in ['train', 'valid']:
+            return img, label
+        else:
+            return img, os.path.basename(path)
